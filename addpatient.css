@@ -1,0 +1,131 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+}
+
+/* Container */
+.container {
+    background: white;
+    padding: 20px;
+    width: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    position: relative;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+}
+
+.header h3 {
+    margin: 0;
+    font-size: 18px;
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* Window Controls */
+.icons {
+    display: flex;
+    gap: 5px;
+}
+
+
+.minimize, .close {
+        width: 40px;
+        height: 40px;
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        color: white;
+    }
+    
+    .minimize {
+        background: gray;
+    }
+    
+    .close {
+        background: red;
+    }
+    
+
+    input, select, textarea {
+        padding: 10px; /* Adds space inside the input field */
+        box-sizing: border-box; /* Ensures padding does not affect width */
+    }
+
+
+/* Form Layout */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+}
+
+/* Two inputs for Test Conducted */
+.test-fields {
+    display: flex;
+    gap: 10px;
+}
+
+.test-fields input {
+    flex: 1;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    color: white;
+}
+
+.submit {
+    
+    background:green;
+}
+
+.update {
+    background: blue;
+}
+
+.cancel {
+    background: gray;
+}

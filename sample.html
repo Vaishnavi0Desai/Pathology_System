@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Sample Form</title>
+    <link rel="stylesheet" href="sample.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Minimize & Close Buttons -->
+        <form action="sample.php" method="POST" onsubmit="return validateForm()">
+        <div class="window-buttons">
+            <button class="minimize-btn">−</button>
+            <button class="close-btn">×</button>
+        </div>
+
+        <h2>Patient Sample Form</h2>
+            <label for="patient_name">Patient Name:</label>
+            <input type="text" id="first_name" name="first_name" placeholder="First Name" required>
+            <input type="text" id="last_name" name="last_name" placeholder="Last Name" required>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+                <option value="" disabled selected>Select</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="contact">Contact Number:</label>
+            <input type="tel" id="contact" name="contact" placeholder="000-0000-000" required>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" placeholder="Enter Email" required>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="3" required></textarea>
+
+            <label for="environment">Environment:</label>
+            <input type="text" id="environment" name="environment" required>
+
+            <label for="collection_date">Collection Date:</label>
+            <input type="date" id="collection_date" name="collection_date" required>
+
+            <label for="blood_group">Blood Group:</label>
+            <select id="blood_group" name="blood_group">
+                <option value="" disabled selected>Select</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+            </select>
+
+            <div class="button-group">
+                <button type="submit" class="submit-btn">Submit</button>
+                <button  class="update-btn">Update</button>
+                <button type="reset" class="cancel-btn">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <script src="sample.js">
+        document.querySelector(".update-btn").addEventListener("click", function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    let firstName = document.getElementById("first_name").value.trim();
+    let lastName = document.getElementById("last_name").value.trim();
+    let dob = document.getElementById("dob").value;
+    let gender = document.getElementById("gender").value;
+    let contact = document.getElementById("contact").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let address = document.getElementById("address").value.trim();
+    let environment = document.getElementById("environment").value.trim();
+    let collectionDate = document.getElementById("collection_date").value;
+    let bloodGroup = document.getElementById("blood_group").value;
+
+    if (firstName === "" || lastName === "" || dob === "" || gender === "" || contact === "" ||
+        email === "" || address === "" || environment === "" || collectionDate === "" || bloodGroup === "") {
+        alert("Please fill all the fields before updating.");
+        return;
+    }
+
+    // Validate contact number (must be 10 digits)
+    if (!/^\d{10}$/.test(contact)) {
+        alert("Please enter a valid 10-digit contact number.");
+        return;
+    }
+
+    // Validate email format
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
+    }
+
+    alert("Update successful!"); // Simulate update action
+    // You can proceed with the update logic (e.g., send data to backend)
+});
+    </script>
+</body>
+</html>

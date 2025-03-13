@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pathologist Form</title>
+    <link rel="stylesheet" href="pathologist.css">
+</head>
+<body>
+
+    <div class="container">
+        <form action="pathologist.php" method="POST" onsubmit="return validateForm()">
+        <!-- Minimize and Close Buttons -->
+        <div class="window-buttons">
+            <button class="minimize-btn">−</button>
+            <button class="close-btn">×</button>
+        </div>
+
+        <h2>Pathologist Details Form</h2>
+            <label for="p_id">P. ID:</label>
+            <input type="text" id="p_id" name="p_id" required>
+
+            <label for="name">Name:</label>
+            <input type="text" id="last_name" name="last_name" placeholder="Last Name" required>
+            <input type="text" id="first_name" name="first_name" placeholder="First Name" required>
+            <input type="text" id="middle_name" name="middle_name" placeholder="Middle Name">
+
+            <label for="contact">Contact No:</label>
+            <div class="contact-field">
+                <span>+91</span>
+                <input type="tel" id="contact" name="contact" placeholder="000-0000-000" required>
+            </div>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="3" required></textarea>
+
+            <label for="specialization">Specialization:</label>
+            <input type="text" id="specialization" name="specialization" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+                <option value="" disabled selected>Select</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <div class="button-group">
+                <button type="submit" class="submit-btn">Submit</button>
+                <button type="reset" class="cancel-btn">Cancel</button>
+            </div>
+        </form>
+    </div>
+<script src="pathologist.js"></script>
+</body>
+</html>

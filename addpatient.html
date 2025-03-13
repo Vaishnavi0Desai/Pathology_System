@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Details Form</title>
+    <link rel="stylesheet" href="addpatient.css">
+</head>
+<body>
+
+<div class="container">
+    <!-- Header -->
+    <div class="header">
+        <h3>Patient Details Form</h3>
+        <div class="icons">
+            <button class="minimize">−</button>
+            <button class="close">X</button>
+        </div>
+    </div>
+
+    <!-- Form -->
+        <form action="addpatient.php" method="POST" onsubmit="return validateForm()">
+        <div class="form-group">
+            <label>First Name:</label>
+            <input type="text" name="first_name" id="first_name" placeholder="Enter first name">
+            <small id="first_name_error"></small>
+        </div>
+
+        <div class="form-group">
+            <label>Last Name:</label>
+            <input type="text"name="last_name" id="last_name" placeholder="Enter last name">
+            <small id="last_name_error"></small>
+        </div>
+
+        <div class="form-group">
+            <label>Gender:</label>
+            <select name="gender" id="gender">
+                <option>Please Select</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select>
+            <small id="gender_error"></small>
+        </div>
+
+        <div class="form-group">
+            <label>Blood Group:</label>
+            <input type="text"name="blood_group" id="blood_group" placeholder="Enter blood group">
+            <small id="blood_group_error"></small>
+        </div>
+
+        <div class="form-group">
+            <label>Phone Number:</label>
+            <input type="text" name="phone_number" id="phone_number"placeholder="Enter phone number">
+            <small id="phone_number_error"></small>
+        </div>
+
+        <div class="form-group">
+            <label>Date of Birth:</label>
+            <input type="date"name="dob" id="dob">
+            <small id="dob_error"></small>
+        </div>
+
+        <div class="form-group">
+            <label>Age:</label>
+            <input type="number" name="age" id="age" placeholder="Enter age">
+            <small id="age_error"></small>
+        </div>
+
+        <!-- Test Conducted Field -->
+        <div class="form-group">
+            <label>Test Conducted By:</label>
+            <div class="test-fields">
+                <input type="text" name="test_first_name" id="test_first_name" placeholder="First Name">
+                <input type="text" name="test_last_name" id="test_last_name" placeholder="Last Name">
+            </div>
+            <small id="test_error"></small>
+        </div>
+
+        <!-- Buttons -->
+        <div class="buttons">
+            <button class="submit" type="submit">Submit</button>
+            <button class="update">Update</button>
+            <button class="cancel" type="reset">Cancel</button>
+        </div>
+    </form>
+</div>
+<script src="addpatient.js">
+    console.log("JavaScript Loaded!"); 
+    document.querySelector(".update").addEventListener("click", function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    let firstName = document.querySelector("input[placeholder='Enter first name']").value.trim();
+    let lastName = document.querySelector("input[placeholder='Enter last name']").value.trim();
+    let gender = document.querySelector("select").value;
+    let bloodGroup = document.querySelector("input[placeholder='Enter blood group']").value.trim();
+    let phone = document.querySelector("input[placeholder='Enter phone number']").value.trim();
+    let dob = document.querySelector("input[type='date']").value;
+    let age = document.querySelector("input[placeholder='Enter age']").value.trim();
+    let testFirstName = document.querySelector("input[placeholder='First Name']").value.trim();
+    let testLastName = document.querySelector("input[placeholder='Last Name']").value.trim();
+
+    if (firstName === "" || lastName === "" || gender === "Please Select" || bloodGroup === "" ||
+        phone === "" || dob === "" || age === "" || testFirstName === "" || testLastName === "") {
+        alert("Please fill all the fields before updating.");
+        return;
+    }
+
+    // Additional validation for phone number (only digits & 10 characters)
+    if (!/^\d{10}$/.test(phone)) {
+        alert("Please enter a valid 10-digit phone number.");
+        return;
+    }
+
+    // Additional validation for age (must be a positive number)
+    if (isNaN(age) || age <= 0) {
+        alert("Please enter a valid age.");
+        return;
+    }
+
+    alert("Update successful!"); // Simulate update action
+    // You can proceed with the update logic (AJAX call or form submission)
+});
+</script>
+
+</body>
+</html>
