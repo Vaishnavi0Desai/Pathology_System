@@ -66,10 +66,10 @@ body {
     justify-content: center;
     align-items: center;
     height: 100%;
-    /* background-image: url('pathlab.jpg'); */
-    /* background-size: cover; /* Ensures the image covers the full screen */
-    /*background-position: center; /* Centers the background image */
-    /*background-repeat: no-repeat;  */
+    background-image: url('pathlab.jpg');
+    background-size: cover; /* Ensures the image covers the full screen*/
+    background-position: center; /*Centers the background image */
+    background-repeat: no-repeat; 
     margin: 0;
     font-family: Arial, sans-serif;
     font-size: larger;
